@@ -40,10 +40,10 @@ console.log('Function 4:', multiplyThree(1,2,3))
 function isPositive( number ) {
   if ( number > 0 ){
     return true;
-  }
-  if ( number <= 0 ){
+  }if ( number <= 0 ){
     return false;
-  }}
+  }
+};
 
 // Call the function to test each outcome (true & false) 
 // Write a separate console.log statement for each outcome
@@ -65,10 +65,12 @@ console.log('Function 6 empty array:', getLast([]));
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
 function find( value, array ){
-  for (let x=0; x<array.length; x++)
+  for (let x=0; x<array.length; x++){
   if (array[x]==value)
     return true;
-}
+  }
+};
+
 console.log('Function 7',find(9,[6,7,8,9]))
 
 // ----------------------
@@ -79,8 +81,7 @@ console.log('Function 7',find(9,[6,7,8,9]))
 function isFirstLetter(letter, string) {
   if (letter == string.charAt(0)){
     return true;
-  }
-  else{
+  }else {
     return false;
   }
 };
@@ -90,7 +91,7 @@ console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
-  let sum = 0
+  let sum = 0;
   for (let x=0; x<array.length; x+=1){
     sum += array[x];
   }
@@ -114,3 +115,31 @@ console.log('Function 10:',sumAllPositive([1,2,3,4,5,6,7,8,-9]))
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+
+//Complete the square sum function so that it squares each number passed into it and then sums the results together.
+//www.codewars.com
+function squareSum(numbers){
+  let sum = 0;
+  for (let x=0; x<numbers.length; x+=1){
+    sum += numbers[x] * numbers[x];
+  }return sum;
+};
+
+
+//Testing
+console.log(squareSum([1,2,3,4,5,6]));
+console.log(squareSum([-1,2,-3,4,5,6]));
+console.log(squareSum([876,933.3]));
+
+//This weeks slack question
+function laundry(basketFull, detergentEmpty){
+  if(basketFull == true && detergentEmpty == false){
+    return 'Run Load!';
+  }else if(basketFull == true && detergentEmpty == true){
+    return 'Go to store!';
+  } else{
+    return 'Your all caught up!';
+  }
+};
+console.log(laundry(false,true));
