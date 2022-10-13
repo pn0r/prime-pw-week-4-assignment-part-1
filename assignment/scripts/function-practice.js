@@ -40,7 +40,7 @@ console.log('Function 4:', multiplyThree(1,2,3))
 function isPositive( number ) {
   if ( number > 0 ){
     return true;
-  }if ( number <= 0 ){
+  }else {
     return false;
   }
 };
@@ -65,14 +65,19 @@ console.log('Function 6 empty array:', getLast([]));
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
 function find( value, array ){
+  let match = false;
   for (let x=0; x<array.length; x++){
-  if (array[x]==value)
+    if (array[x]===value)
+    match = true;
+  }if (match === true){
     return true;
+  }else {
+    return false;
   }
 };
 
-console.log('Function 7',find(9,[6,7,8,9]))
-
+console.log('Function 7', find(9,[6,7,8,9]));
+console.log('Function 7', find(21,[6,7,8,9]))
 // ----------------------
 // Stretch Goals
 // ----------------------
@@ -88,7 +93,7 @@ function isFirstLetter(letter, string) {
 
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
-
+console.log( 'isFirstLetter - should say false', isFirstLetter('p', 'apple') );
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
   let sum = 0;
@@ -100,18 +105,22 @@ function sumAll(array) {
 };
 
 console.log('Function 9:',sumAll([1,2,3,4,5,6,7,8,9]))
+console.log('Function 9:',sumAll([-1,2,3,4,5,6,7,8,9]))
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function sumAllPositive(array){
-  let sum = 0
-  for (let x=0; x<array.length; x+=1)
-    if(array[x]>0)
-      sum += array[x];
-    return sum;
+function onlyPositive(array){
+  let newArray = [];
+  for (let x of array) {
+    if(x>0){
+      newArray.push(x);
+    }
+  } 
+  return newArray;
 };
 
-console.log('Function 10:',sumAllPositive([1,2,3,4,5,6,7,8,-9]))
+console.log('Function 10:',onlyPositive([1,2,3,4,5,6,7,8,-9]))
+console.log('Function 10:',onlyPositive([1,2,3,4,5,6,7,8,9]))
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
